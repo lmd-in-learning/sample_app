@@ -9,7 +9,7 @@ gem 'test-unit'
 # gem 'sqlite3'
 group :development do
 	gem 'sqlite3', '1.3.11'
-	gem 'rspec-rails', '2.13.1'
+	gem 'rspec-rails', '3.3.2'
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '4.0.0'
@@ -47,6 +47,7 @@ group :production do
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'guard-rspec','4.6.0'
 end
 
 group :test do
@@ -54,6 +55,9 @@ group :test do
 	gem 'websocket', '1.0.7'
 	gem 'selenium-webdriver', '2.35.1'
 	gem 'capybara', '2.1.0'
+
+	gem 'rb-notifu', '0.0.4'
+	gem 'win32console','1.3.2'
 end
 
 group :development do
