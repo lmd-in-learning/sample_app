@@ -3,15 +3,15 @@ ruby '2.2.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
+gem 'bootstrap-sass', '2.3.2.0'
+gem 'sprockets', '2.11.0'
 # gem 'minitest'
 gem 'test-unit'
-
-gem 'wdm', '>=0.1.0'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 group :development do
 	gem 'sqlite3', '1.3.11'
-	gem 'rspec-rails', '3.3.2'
+	gem 'rspec-rails', '2.13.1'
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '4.0.0'
@@ -49,19 +49,13 @@ group :production do
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'guard-rspec', '4.6.0'
-  # gem 'spork-rails', github: 'railsturorial/spork-rails'
-  gem 'childprocess', '0.3.6'
 end
 
 group :test do
 	gem 'rubyzip', '~>0.9.9'
 	gem 'websocket', '1.0.7'
 	gem 'selenium-webdriver', '2.35.1'
-	gem 'capybara', '>=2.2.0'
-
-	gem 'rb-notifu', '0.0.4'
-	gem 'win32console','1.3.2'
+	gem 'capybara', '2.1.0'
 end
 
 group :development do
