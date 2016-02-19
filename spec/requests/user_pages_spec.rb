@@ -48,6 +48,17 @@ describe "User Pages" do
 		end
 	end
 
+	describe "when signout should not see Profile and Setting" do
+		let(:user) { FactoryGirl.create(:user) }
+		before do
+			sign_in user
+			click_link "Sign out"
+		end
+
+		it { should_not have_content('Profile') }
+		it { should_not have_content('Setting')}
+	end
+
 	describe "profile page" do
 		let(:user) { FactoryGirl.create(:user) }
 		before { visit user_path(user) }
@@ -80,7 +91,7 @@ describe "User Pages" do
 				fill_in "Name",			with: "Example User"
 				fill_in "Email",		with: "user@example.com"
 				fill_in "Password",		with: "foobar"
-				fill_in "Confirmation",	with: "foobar"
+				fill_in "Confirm Password",	with: "foobar"
 			end
 
 			it "should create a user"do
@@ -113,6 +124,14 @@ describe "User Pages" do
 			visit edit_user_path(user)
 		end 
 		
+		describe "forbidden attributes" do
+			let(:params) do
+				{ user: { admin: true, password: user.password,
+					password_confirmation: user.password } }
+			end
+			before { patch user_path(user), params }
+			specify { expect(user.reload).not_to be_admin }
+		end
 
 		describe "page" do
 			it { should have_content("Update your profile") }
