@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   # get 'static_pages/contact'
   resources :users
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions,    only: [:new, :create, :destroy]
+  resources :microposts,  only: [:create, :destroy]
   root :to => 'static_pages#home' 
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
